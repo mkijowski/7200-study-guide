@@ -2,6 +2,16 @@
 No idea, gonna be scattered until I get a better handle on it.
 Maybe expect it to become pdf for latex engine to allow better equestions?
 
+Exam:
+* stable marriage, matching, perfect mathcing, derive stable solution
+* complexity, big 0 notation, in line with sample problem given a number of
+  functions
+* algorithm design, variant of something we've already seen (greedy algorithm)
+* algorithm design / pseudo code similar to assignment
+  * sort, walk thorugh, collect or not collect
+* greedy algorithm
+* maybe little bit on divide and conquer
+* covers up until last class (Tuesday, Oct. 8)
 
 Things I think T.K. wants us to know:
 
