@@ -26,26 +26,18 @@ Exam:
    * Some basic questions on binary trees at the introductory level
 5. [Algorithm Design (?
    pts.)](https://github.com/mkijowski/7200-study-guide/blob/master/README.md#algorithm-design)
-   * Define a problem similar to one in class
+   * Define a problem similar to one in class (probably a greedy algorithm)
    * Provide a heuristic for solving it
    * We will write pseudo-code for the algorithm
    * We will prove if the heuristic generates an optimal solution or provide a
      counter-examepl if not
-
-
-* algorithm design, variant of something we've already seen (greedy algorithm)
-* algorithm design / pseudo code similar to assignment
-  * sort, walk thorugh, collect or not collect
-* greedy algorithm
-* maybe little bit on divide and conquer
-* covers up until last class (Tuesday, Oct. 8)
-
-Things I think T.K. wants us to know:
-
-* Know trees, binary, three-ary, be able to figure out depth of trees
-* recursive tree application to a problem that doesnt allow for master theorem
-
-
+6. [Divide and
+   conquer (? pts.)](https://github.com/mkijowski/7200-study-guide/blob/master/README.md#divide-and-conquer)
+7. [Recursive tree and Master Theorem( ?
+   pts.)](https://github.com/mkijowski/7200-study-guide/blob/master/README.md#recursive-tree-and-master-theorem)
+   * be able to identify what the master theorem is
+   * identify when master theorem applies
+   * is master theorem does not apply be able to apply recursive tree
 
 ## Stable Marriage
 [Best described on Wikipedia][1]. The Stable Marriage Problem (also called
@@ -139,14 +131,19 @@ O(1) < O(log[n]) < O(n) < O(n*log[n]) < O(n^x) < O(x^n) < O(n!)
 
 
 ### Trees
+* describe and implement heap
+* Know trees, binary, three-ary, be able to figure out depth of trees
 
 
 ### Algorithm Design
 
+* algorithm design, variant of something we've already seen (greedy algorithm)
+* algorithm design / pseudo code similar to assignment
+  * sort, walk thorugh, collect or not collect
 
+## Recursive tree and Master Theorem
 
-
-### Deriving Master Theorem (and possibly Muster)
+#### Deriving Master Theorem (and possibly Muster)
 * First, learn the recursion tree method. Learn how to build the tree, how to count the number of leaves, and how to count the amount of "extra work" at each level, and how to sum them (by summing a series, e.g., a geometric series).
 * Next, open up a textbook read a standard proof of the Master theorem. Work through each step and check that you understand what's happening.
 * Now, close your textbook and put away all your resources. Put a blank piece of paper in front of you... and derive the Master theorem yourself. How do you do that? Well, you use the recursion tree method. Try working through it by yourself and try to solve the recurrence entirely on your own. If you get stuck, as a last resort you can open the textbook back up and see how to proceed from there... but then the next day, you should try this exercise again.
@@ -163,10 +160,6 @@ tower of hannoi special case (guess and prove or muster theorem)
 its not that master theorem doesnt apply to non-polynomial functions, we just
 cant prove that it does apply
 
-### Sorting
-quick sort, bubble sort, merge sort, etc
-describe that many of the algorithms apply sorting as a pre-requisite to the
-algorithm
 
 [1]:https://en.wikipedia.org/wiki/Stable_marriage_problem
 
