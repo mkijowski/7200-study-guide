@@ -137,7 +137,9 @@ O(1) < O(log[n]) < O(n) < O(n*log[n]) < O(n^x) < O(x^n) < O(n!)
 
 ### Analysis of loops
 
+
 ### Trees
+
 
 ### Algorithm Design
 
