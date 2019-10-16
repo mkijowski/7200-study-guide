@@ -230,10 +230,74 @@ Dijsktra's algorithm requires all edge weights to be non-negative.  Show by
 constructing an example that the algorithm can fail to compute the shortest path
 between source and target when the graph contains a negative edge.
 
+Dihsktra's algorithm does not work on graph's with negative edge weights
+because it assumes that once a node has been visited there will not be a
+shorter path to that node.
 
+Consider the following:
+```
+       A
+      / \
+     /   \
+    5     2
+   /       \
+  /         \
+  B--(-10)-->C
+```
 
+Finding the shortest distance from A to C, the algorithm will first visit A by
+extracting it from `Q=[A,B,C]`. (note, distances are instantiated at `A=0,
+B=infinity and C=infinity`.  
+Updating the distances and Q we now have:
 
+`Q=[B,C]   A=0    B=5   C=2`  
 
+The algorithm will then extract `C` from `Q`.  Since C has no outgoing nodes the
+distances remain the same and we get:
+
+`Q=[B]     A=0    B=5   C=2`
+
+Finally, the algorithm extracts `B` from `Q`.  Because of the constraint of 
+positive numbers for vertex weights, the algorithm looks at outgoing edges
+of vertex `B` going into any vertices in `Q`, but because `Q` is empty, the
+algorithm does not consider that `A -> B -> C` could be shorter than `Q` so it
+terminates with minimum distance from `A->C` being 2.
+
+###### 3) Apply Kruskals algorithm to find the MST and it's weight
+Kruskals algorithm starts without any edges and adds edges with the minimum cost
+so long as they do not create a cycle.  If adding an edge would create a cycle
+we simply do not add it and move on.  This would leave for this problem the
+following MST:
+```
+L-S 263
+L-P 388
+L-N 168
+S-D 630
+D-H 243
+P-B 561
+```
+For a weight of whatever the sum of the above numbers are...
+
+###### 4) Consider the recurrence:
+```
+          T(3n/4) + T(n/5) + cn    if n >= 60
+T(n) <=
+          d                        if n <  60       
+```
+Give an expression/formula for the length of the shortest path from root to leaf
+in the recursion tree.
+
+The two lengths are log<sub>4/3</sub>*n* and log<sub>5</sub>*n* of which
+log<sub>5</sub>*n* is shorter.
+
+###### 5) Determine order-theoretic solutions to the following recurrences:
+
+1. `T(n) = 5 T(n/7) + n`
+   applying master theorm with `a = 5`, `b = 7`, and `d = 1` we get
+   `5 < 7^1` therefor: `O(n)`
+2. `T(n) = 2 T(n-1) + 1`
+   applying muster theorem with `a = 2`, `b = 1`, and `d = 0` we get
+   `a > 1` therefor: `O( (n^0)(2^(n/1)) ) == O(2^n)`
 
 [1]:https://en.wikipedia.org/wiki/Stable_marriage_problem
 
