@@ -9,7 +9,10 @@ I will be starting this guide by documenting 2 things, the email sent
 describing what will be on the exam, and the practice midterm on Dr. Prasad's
 site.
 
-Exam:
+[My solutions to the 2013 midterm
+provided.](https://github.com/mkijowski/7200-study-guide/blob/master/README.md#sample-midterm)
+
+Here are the topics TK says will be on the exam:
 1. [Stable Marriage (15
    pts.)](https://github.com/mkijowski/7200-study-guide/blob/master/README.md#stable-marriage)
    * perfect and stable matching
@@ -30,7 +33,7 @@ Exam:
    * Provide a heuristic for solving it
    * We will write pseudo-code for the algorithm
    * We will prove if the heuristic generates an optimal solution or provide a
-     counter-examepl if not
+     counter-example if not
 6. [Divide and
    conquer (? pts.)](https://github.com/mkijowski/7200-study-guide/blob/master/README.md#divide-and-conquer)
 7. [Recursive tree and Master Theorem( ?
@@ -127,7 +130,7 @@ Basic Big-O hierarchy:
 O(1) < O(log[n]) < O(n) < O(n*log[n]) < O(n^x) < O(x^n) < O(n!)
 ```
 
-### Analysis of loops
+## Analysis of loops
 * Loop variable incremented by a constant amount requires `O(n)` time.
 * Complexity of nested loops is `O(n^c)` which is the number of times the
   innermost statement is executed.  One nested loop would be n^2 time, two nested
@@ -140,17 +143,13 @@ O(1) < O(log[n]) < O(n) < O(n*log[n]) < O(n^x) < O(x^n) < O(n!)
 Combining time complexities of consecutive loops simply sum the time complexity
 of each individual loop.
 
-
-
-
-
-
-### Trees
+## Trees
+Trees are simply undirected graphs that contain no cycles.
 * describe and implement heap
 * Know trees, binary, three-ary, be able to figure out depth of trees
 
 
-### Algorithm Design
+## Algorithm Design
 
 * algorithm design, variant of something we've already seen (greedy algorithm)
 * algorithm design / pseudo code similar to assignment
@@ -174,6 +173,66 @@ tower of hannoi special case (guess and prove or muster theorem)
 
 its not that master theorem doesnt apply to non-polynomial functions, we just
 cant prove that it does apply
+
+## Sample Midterm
+###### 1) [Stable  Marriage  Problem]
+State  whether  the  following  claims  are true  or false.   
+If   true,   justify it as   clearly   as   possible. If false, provide a 
+counterexample/argument.
+
+``` 
+(a) If w is the top choice of m, and m is the top choice of w, then m and w 
+    must be paired with each other in any stable matching.
+```
+
+My answer is this is true.  Consider the first proposal of *m*.  Since *w* is
+*m*'s top choice, she is propsed to first and if she is not engaged the proposal 
+is conditionally accepted.  If she is ingaged because *m* is her top choice she
+will *trade up* to *m* (she will leave her current match and instead match with
+*m*).  The only way for this match to be broken is for a higher ranking man to
+propose to *w*, but *m* is *w*'s top choice so they will be matched in any
+stable pairing.
+
+Also consider the instability side.  Assume a stable pairing of *w* to some
+other man *m'*.  The second type of instability assumes there is no man *m* who
+is ranked higher according to *w* AND prefers *w* to their current match.  Given
+that *m* and *w* are each others top choice any final matching of *w* to NOT *m*
+would result in an instability.
+
+```
+(b) If w is the last choice of m, and m is the last choice of w, then m and w 
+    must be paired with each other in any stable matching.
+```
+My answer is this is false.  While *m* and *w* MAY be paired with each other in
+a stable matching, they can (and likely would) each be paired with someone else.
+
+Consider:
+```
+m1 w1 w2
+m2 w1 w2
+
+w1 m2 m1
+w2 m1 m2
+```
+
+Given a male's propose algorithm, the steps would be:
+```
+m1 propose to w1 (provisionally accepted)
+m2 propose to w1 (w1 gives m1 the boot and accepts m2)
+m1 propose to w2 (provisionally accepted)
+end (all parties are engaged)
+```
+
+There is no instability in the pairings of m1-w2 and m2-w1 proving (b) false.
+
+###### 2) Dijsktra's shortest path algorithm
+Dijsktra's algorithm requires all edge weights to be non-negative.  Show by
+constructing an example that the algorithm can fail to compute the shortest path
+between source and target when the graph contains a negative edge.
+
+
+
+
 
 
 [1]:https://en.wikipedia.org/wiki/Stable_marriage_problem
