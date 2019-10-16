@@ -72,7 +72,7 @@ unengaged.
 These iterations finish once everyone is engaged.  The algorithm allows women to
 "trade up" and in the process jilt her until-then partner.
 
-The algorithm guarantees that:
+##### The algorithm guarantees that:
 
 ###### Everyone gets married
 At the end there cannot be a man and woman both unengaged since he at some point
@@ -128,6 +128,21 @@ O(1) < O(log[n]) < O(n) < O(n*log[n]) < O(n^x) < O(x^n) < O(n!)
 ```
 
 ### Analysis of loops
+* Loop variable incremented by a constant amount requires `O(n)` time.
+* Complexity of nested loops is `O(n^c)` which is the number of times the
+  innermost statement is executed.  One nested loop would be n^2 time, two nested
+  loops n^3 and so on.
+* If the loop variable is multiplied or divided by a constant amount the time
+  complexity is `O(log n)`
+* If the loop variable is incremented/decremented exponentially by an amount the
+  time complexity is `O(log log n)`
+
+Combining time complexities of consecutive loops simply sum the time complexity
+of each individual loop.
+
+
+
+
 
 
 ### Trees
