@@ -218,9 +218,42 @@ When di needs to be brought into the cache
    evict the item that was used farthest in the past
 ```
 
-* algorithm design, variant of something we've already seen (greedy algorithm)
-* algorithm design / pseudo code similar to assignment
-  * sort, walk thorugh, collect or not collect
+#### Dijkstra's algorithm
+For determining shortest distance between a starting node and a destination node:
+
+```
+Mark all nodes unvisited. Create a set of all unvisited nodes Q = [n1, n2, n3, ..., n]
+Assign to every node a tentative distance value: set it to zero for our initial node and to infinity for all other nodes.
+set current node to initial node
+
+For the current node
+  consider all of its unvisited neighbours and calculate their tentative distances through the current node. 
+  Compare the newly calculated tentative distance to the current assigned value and assign the smaller one. 
+  mark the current node as visited and remove it from the unvisited set Q. (A visited node will never be checked again).
+  
+  If the destination node has been marked visited (when planning a route between two specific nodes) or if the smallest tentative distance among the nodes in the unvisited set is infinity (when planning a complete traversal; occurs when there is no connection between the initial node and remaining unvisited nodes), then stop. The algorithm has finished.
+  
+  Otherwise, select the unvisited node that is marked with the smallest tentative distance, set it as the new "current node" and go to beginning of loop
+```
+
+#### Kruskal's algorithm
+Computing a Minimum Spanning Tree **MST**:
+```
+Start with an empty set
+Choose an edge with the smallest weight and add it to the set
+Consider each edge in order of increasing cost
+   add edge to set if adding it does not create a cycle in the set
+   if edge would create a cycle discard and consider next edge
+```
+
+We can check to see if a cycle is created by determining if *BOTH* verticies that make up the edge are in the set.
+
+#### Reverse delete (Backwards Kruskal's)
+Also computes a MST.  Start with whole graph and remove largest weighted edges if the removal would not disconnect the graph
+
+#### Prim's algorithm
+Kruskal's with a fixed starting point and growing the set by including edges that minimize attachment costs.
+
 
 ## Recursive tree and Master Theorem
 #### Master Theorem
