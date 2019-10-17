@@ -157,6 +157,7 @@ as any other algorithm.
 
 #### Interval scheduling
 Greedy algorithm, consider jobs in increasing order of finish time:
+
 ```
 Sort jobs by finish times so that f1 <= f2 <= ... <= fn.
 A <- empty 
@@ -170,13 +171,14 @@ runs in O(n log n)
 
 #### Interval partitioning
 Consider lectures in increasing order of start time: assigning lectures to any compatible classroom
+
 ```
 Sort intervals by starting time so that s1 <= s2 <= ... <= sn.
 d <- 0  (number of allocated classrooms)
 
 for j = 1 to n {
    if(lecture j is compatible with some classroom k)
-      schedule lecture j in the classroom  kbest with lowest finish time
+      schedule lecture j in the classroom  k.best with lowest finish time
    else
       allocate a new classroom d + 1
       schedule lecture j in classroom d + 1
@@ -185,7 +187,37 @@ for j = 1 to n {
 ```
 runs in O(n log n)
 
-#### 
+#### Minimizing lateness
+Consider Jobs in order of their deadlines:
+
+```
+Sort jobs in increasing order of their deadline
+assume d1 <= ... <= dn
+Initially, f=s
+Consider the jobs i=1, ..., n in this order
+   Assign job i to the time interval from s(i) = f to f(i) = f + ti
+   let f = f + ti
+End
+Return set [s(i), f(i)] for i = 1, ..., n
+```
+Interesting points:
+* There is an optimal schedule with no idle time
+* All schedules with no inversions and no idle time have the same max lateness
+* Therefor there is an optimal schedule that has no inversions and no idle times
+
+#### Optimal Caching
+* Farthest in Future or **FF** (Belady, non-realistice since it requires knowledge of the future, but a good metric to test against)
+```
+When di needs to be brought into the cache
+   evict the item that is needed farthest in the future
+```
+
+* Least Recently Used or **LRU**
+```
+When di needs to be brought into the cache
+   evict the item that was used farthest in the past
+```
+
 * algorithm design, variant of something we've already seen (greedy algorithm)
 * algorithm design / pseudo code similar to assignment
   * sort, walk thorugh, collect or not collect
