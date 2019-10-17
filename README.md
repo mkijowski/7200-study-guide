@@ -151,6 +151,41 @@ Trees are simply undirected graphs that contain no cycles.
 
 ## Algorithm Design
 
+Will likely be a greedy algorithm.  Greedy algorithm always stays ahead.  Show
+that after each step of the greedy algorithm, its solution is at least as good
+as any other algorithm.
+
+#### Interval scheduling
+Greedy algorithm, consider jobs in increasing order of finish time:
+```
+Sort jobs by finish times so that f1 <= f2 <= ... <= fn.
+A <- empty 
+for j = 1 to n {
+   if(job j compatible with A)
+   A <- A U {j}
+}
+return A
+```
+runs in O(n log n)
+
+#### Interval partitioning
+Consider lectures in increasing order of start time: assigning lectures to any compatible classroom
+```
+Sort intervals by starting time so that s1 <= s2 <= ... <= sn.
+d <- 0  (number of allocated classrooms)
+
+for j = 1 to n {
+   if(lecture j is compatible with some classroom k)
+      schedule lecture j in the classroom  kbest with lowest finish time
+   else
+      allocate a new classroom d + 1
+      schedule lecture j in classroom d + 1
+      d <- d + 1
+}   
+```
+runs in O(n log n)
+
+#### 
 * algorithm design, variant of something we've already seen (greedy algorithm)
 * algorithm design / pseudo code similar to assignment
   * sort, walk thorugh, collect or not collect
